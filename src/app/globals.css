@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Tokens de cor (canais RGB para o Tailwind aplicar opacidade). Escuro em .dark. */
+/* Paleta da marca Genius: roxo da logo (#6A00DD) como destaque; neutros com um fundo levemente arroxeado.
+   O verde, o âmbar e o vermelho das decisões (aprovar / ajustar / reprovar) ficam como estão: são status, não marca. */
+:root {
+  --fundo: 247 245 252;
+  --superficie: 255 255 255;
+  --superficie-2: 241 238 250;
+  --borda: 229 224 242;
+  --borda-forte: 207 200 228;
+  --texto: 26 20 41;
+  --texto-suave: 62 54 87;
+  --texto-fraco: 104 96 130;
+  --destaque: 106 0 221;
+  --destaque-hover: 88 0 184;
+  --sobre-destaque: 255 255 255;
+  color-scheme: light;
+}
+
+.dark {
+  --fundo: 15 12 23;
+  --superficie: 24 20 36;
+  --superficie-2: 35 29 52;
+  --borda: 46 39 68;
+  --borda-forte: 70 61 98;
+  --texto: 237 234 246;
+  --texto-suave: 215 209 232;
+  --texto-fraco: 169 160 194;
+  --destaque: 168 120 255;
+  --destaque-hover: 193 158 255;
+  --sobre-destaque: 26 6 61;
+  color-scheme: dark;
+}
+
+body {
+  background: rgb(var(--fundo));
+  color: rgb(var(--texto));
+}
+
+::selection {
+  background: rgb(var(--destaque) / 0.25);
+}
+
+:focus-visible {
+  outline: 2px solid rgb(var(--destaque));
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 0ms !important;
+  }
+}
